@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Cricket OR BaseBall</title>
+  </head>
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Cricket Or BaseBall</h1>
+        <p class="lead">An Artificial Intelligence Eye to tell difference between Baseball and Cricket</p>
+        <a class="btn btn-primary btn-lg" href="https://github.com/Dalakoti07/cricketVsBaseball" target="_blank" role="button">Learn more</a>
+      </div>
+    </div>
+
+    <section class="m-5">
+        <div class="container-fluid">
+        
+        <div class="row">
+        <div class="col-lg-4">
+          <img id="imageForPrediction" src="{{url_for('static',filename='interface.svg')}}" width="400" height="400" class="rounded float-left" alt="...">            
+        </div>
+
+      <!-- form for url typing  -->
+      <div class="col-lg-4 ">
+        <div class="my-auto">
+
+        <form action="#" id="predictForm" class="m-2">
+            <div class="form-group row">
+              <div class="col-sm-10 col-lg-10 ">
+                <input type="text" oninput="myFunction()" name="url" class="form-control form-control-sm p-2" id="urlForImage" placeholder="Paste the url of Image">
+              </div>
+            </div>  
+          <div class="form-group row">
+            <button id="btnPredict" class="btn btn-primary mx-auto">Predict</button>
+          </div>
+        </form>
+        
+        <div class="progress" id="predictProgress" style="visibility: hidden;">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+        </div>
+      </div>
+    </div>
+
+      <!-- result textbox -->
+      <div class="col-lg-4">
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Predictions from Model</label>
+          <textarea class="form-control" id="resultTextArea" rows="7">
+            
+          </textarea>
+        </div>
+        <div class="mx-auto">
+          <img class="mx-auto" src="{{url_for('static',filename='baseball.svg')}}"  width="10%" height="10%"  id="predictImageCategory" style="visibility: hidden;" alt="">
+        </div>
+        <div ><h3 id="predictImageCategoryText"></h3></div>
+      </div>
+        </div>
+        <div class="row" id="credit_div">
+            Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik"> Freepik </a> from Flaticon
+        </div>
+      </div>
+
+     
+    </section>
+        
+
+    <section class="p-5">
+      <div class="row">
+        <div class="col text-center mb-3">
+            <h1 class="text-warning display-2">Some of results </h1>
+            <p class="lead text-secondary">Some predictions made by model after training</p>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+       <div class="col-lg-3 col-sm-6">
+          <img src="{{url_for('static',filename='cricket/00000032.jpg')}}" class="img-thumbnail">
+          <h2 class="my-3 text-warning">Cricket</h2>
+      </div>
+      <div class="col-lg-3 col-sm-6 mt-3">
+          <img src="{{url_for('static',filename='cricket/00000039.jpg')}}" class="img-thumbnail">
+          <h2 class="my-3 text-warning">Cricket</h2>
+      </div>
+      <div class="col-lg-3 col-sm-6 mt-4">
+          <img src="{{url_for('static',filename='baseball/00000016.jp')}}g" class="img-thumbnail">
+          <h2 class="my-3 text-warning">Baseball</h2>
+      </div>
+      <div class="col-lg-3 col-sm-6 mt-5">
+          <img src="{{url_for('static',filename='baseball/00000019.jpg')}}" class="img-thumbnail">
+          <h2 class="my-3 text-warning">Baseball</h2>
+      </div>
+   
+        </div>
+      </div>
+  
+      <div class="container-fluid">
+        <div class="row">
+       <div class="col-lg-3 col-sm-6">
+          <img src="{{url_for('static',filename='cricket/00000044.jpg')}}" class="img-thumbnail">
+          <h2 class="my-3 text-warning">Cricket</h2>
+      </div>
+      <div class="col-lg-3 col-sm-6 mt-3">
+          <img src="{{url_for('static',filename='cricket/00000048.jpg')}}" class="img-thumbnail">
+          <h2 class="my-3 text-warning">Cricket</h2>
+      </div>
+      <div class="col-lg-3 col-sm-6 mt-4">
+          <img src="{{url_for('static',filename='baseball/00000021.jpg')}}" class="img-thumbnail">
+          <h2 class="my-3 text-warning">Baseball</h2>
+      </div>
+      <div class="col-lg-3 col-sm-6 mt-5">
+          <img src="{{url_for('static',filename='baseball/00000030.jpg')}}" class="img-thumbnail">
+          <h2 class="my-3 text-warning">Baseball</h2>
+      </div>
+   
+        </div>
+      </div>
+    </section>
+  </body>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+      
+      function myFunction() {
+        var x = document.getElementById("urlForImage").value;
+        if (x.includes("http") || x.includes("www")){
+          document.getElementById("imageForPrediction").src = x;
+          console.log(" we got image there ")
+          document.getElementById("credit_div").style.visibility = "hidden";
+        }
+      }
+    </script>
+    <script src="{{url_for('static',filename='script.js')}}"></script>
+</html>
